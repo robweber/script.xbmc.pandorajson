@@ -19,3 +19,4 @@
 1.3.00 Alternate code.
 1.3.01 Fixed Proxy code
 1.3.02 Pandora One Support
+1.3.03 remember last played station on startup
