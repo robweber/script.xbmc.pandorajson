@@ -25,4 +25,6 @@
 		option="hidden" visible="eq(-4,true)"/>
 	<setting id="firstrun" type="bool" label="" visible="false"
 		default="true"/>
+	<setting id="last_station" type="text" label="" visible="false"
+		default=""/>
 </settings>

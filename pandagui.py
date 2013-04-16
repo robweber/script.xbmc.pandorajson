@@ -27,6 +27,7 @@ class PandaGUI(xbmcgui.WindowXMLDialog):
 	def onInit(self):
 		print "PANDORA: Window Initalized!!!"
 		self.list = self.getControl(200)
+		playstation = -1
 		dlg = xbmcgui.DialogProgress()
 		dlg.create("PANDORA", "Fetching Stations")
 		dlg.update(0)
@@ -34,6 +35,10 @@ class PandaGUI(xbmcgui.WindowXMLDialog):
 			tmp = xbmcgui.ListItem(s.name)
 			tmp.setProperty("stationId", s.id)
 			self.list.addItem(tmp)
+
+			if(s.id == self.panda.settings.getSetting('last_station')):
+                                playstation = self.list.size() - 1
+                                
 		dlg.close()
 		self.getControl(BTN_THUMBED_DN).setVisible(False)
 		self.getControl(BTN_THUMBED_UP).setVisible(False)
@@ -41,6 +46,10 @@ class PandaGUI(xbmcgui.WindowXMLDialog):
 		logo = self.getControl(100)
 		if self.panda.settings.getSetting("logoSize") == "false":
 			logo.setPosition(-100, -100)
+
+		if(playstation != -1):
+                        self.list.selectItem(playstation)
+                        self.panda.playStation(self.panda.settings.getSetting('last_station'))
 
 	def onAction(self, action):
 		buttonCode = action.getButtonCode()
