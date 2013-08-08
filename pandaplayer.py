@@ -45,8 +45,5 @@ class PandaPlayer(xbmc.Player):
 		print "PANDORA: playing = %s" % self.panda.playing
 		if self.timer and self.timer.isAlive():
 			self.timer.cancel()
-		if self.panda.playing:
-			if self.panda.skip:
-				self.panda.skip = False
-			self.timer = Timer(0.5, self.panda.playNextSong)
-			self.timer.start()
+		self.panda.stop()
+		
