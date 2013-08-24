@@ -45,5 +45,8 @@ class PandaPlayer(xbmc.Player):
 		print "PANDORA: playing = %s" % self.panda.playing
 		if self.timer and self.timer.isAlive():
 			self.timer.cancel()
-		self.panda.stop()
+		if xbmc.getCondVisibility('Skin.HasSetting(PandoraVis)'):
+                        xbmc.executebuiltin('Skin.Reset(PandoraVis)')
+		self.panda.Quit()
+		
 		
