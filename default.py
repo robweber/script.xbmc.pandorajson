@@ -81,6 +81,11 @@ class Panda:
 		self.gui = PandaGUI("script-pandora.xml", scriptPath, self.skinName)
 		
 		self.gui.setPanda(self)
+		
+		if(self.settings.getSetting('start_vis') == 'true'):
+			xbmc.executebuiltin("Skin.SetBool(PandoraVis)")
+		else:
+			xbmc.executebuiltin("Skin.Reset(PandoraVis)")
 
 	def auth(self):
 		dlg = xbmcgui.DialogProgress()

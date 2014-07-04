@@ -27,7 +27,6 @@
 			<posy>0</posy>
 			<texturenofocus>-</texturenofocus>
 			<texturefocus>-</texturefocus>
-			<onfocus>Skin.Reset(PandoraVis)</onfocus>
 			<onfocus>SetFocus(2000)</onfocus>
 			<ondown>200</ondown>
 			<onup>200</onup>
